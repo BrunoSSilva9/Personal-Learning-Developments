@@ -7,41 +7,74 @@ import entities.Jogador;
 import entities.Partida;
 import entities.Time;
 
+import java.util.Locale;
 import java.util.Scanner;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Programa {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		
+		
+		Jogador j1 = new Jogador();
+		Jogador.EntradasJogador(j1);
 
-		Jogador j1 = new Jogador("Ramon", LocalDate.of(1975, 05, 9), "Masculino", 1.71);
-		Jogador j2 = new Jogador("Juninho", LocalDate.of(1977, 02, 19), "Masculino", 1.73);
+		Jogador j2 = new Jogador();
+		Jogador.EntradasJogador(j2);
 
-		Endereço ed1 = new Endereço("Rua Vasco", 13, "Vascão", "Ipanema");
-		Estadio e1 = new Estadio("São Januario", ed1);
-		Time t1 = new Time("Vasco", e1);
+		Endereço ed1 = new Endereço();
+		Endereço.infoEndereco(ed1);
+		
+		Estadio e1 = new Estadio();
+		Estadio.InfoEstadio(e1);
+		e1.setEndereco(ed1);
+		
+		Time t1 = new Time();
+		Time.InfoTime(t1);
+		t1.setEstadioSede(e1);
 		t1.addJogador(j1);
 		t1.addJogador(j2);
 		t1.setCapitao(j1);
+		
 
-		Jogador j3 = new Jogador("Alves", LocalDate.of(1998, 03, 19), "Masculino", 1.73);
-		Jogador j4 = new Jogador("Everton", LocalDate.of(1998, 8, 9), "Masculino", 1.74);
+		Jogador j3 = new Jogador();
+		Jogador.EntradasJogador(j3);
+		
+		Jogador j4 = new Jogador();
+		Jogador.EntradasJogador(j4);
 
-		Endereço ed2 = new Endereço("Rua Atletico", 14, "MG", "Belo");
-		Estadio e2 = new Estadio("Mineirão", ed2);
-		Time t2 = new Time("Cruzeiro", e2);
+		Endereço ed2 = new Endereço();
+		Endereço.infoEndereco(ed2);
+		
+		Estadio e2 = new Estadio();
+		Estadio.InfoEstadio(e2);
+		e2.setEndereco(ed2);
+		
+		Time t2 = new Time();
+		Time.InfoTime(t2);
+		t2.setEstadioSede(e2);
 		t2.addJogador(j3);
 		t2.addJogador(j4);
 		t2.setCapitao(j4);
 
-		Jogador j5 = new Jogador("Davi", LocalDate.of(1996, 7, 20), "Masculino", 1.70);
-		Jogador j6 = new Jogador("Breno", LocalDate.of(1998, 4, 22), "Masculino", 1.76);
+		Jogador j5 = new Jogador();
+		Jogador.EntradasJogador(j5);
+		
+		Jogador j6 = new Jogador();
+		Jogador.EntradasJogador(j6);
 
-		Endereço ed3 = new Endereço("Rua Mengão", 20, "RJ", "Pacaembu");
-		Estadio e3 = new Estadio("Clube de Regatas", ed3);
-		Time t3 = new Time("Flamengo", e3);
+		Endereço ed3 = new Endereço();
+		Endereço.infoEndereco(ed3);
+		
+		Estadio e3 = new Estadio();
+		Estadio.InfoEstadio(e3);
+		e3.setEndereco(ed3);
+		
+		Time t3 = new Time();
+		Time.InfoTime(t3);
+		t3.setEstadioSede(e3);
 		t3.addJogador(j5);
 		t3.addJogador(j6);
 		t3.setCapitao(j6);
@@ -84,11 +117,9 @@ public class Programa {
 		c1.addPartidas(p4);
 		c1.addPartidas(p5);
 		c1.addPartidas(p6);
-
-		c1.StatusPartidas();
-
-		c1.tabelaCampeonato();
+		
+		Campeonato.menuPrincipal(c1);
 
 	}
-
+	
 }

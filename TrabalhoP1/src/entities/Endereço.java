@@ -1,4 +1,5 @@
 package entities;
+import java.util.Scanner;
 
 public class Endereço {
 	private Integer id;
@@ -61,6 +62,30 @@ public class Endereço {
 
 	public static void setQtd(int qtd) {
 		Endereço.qtd = qtd;
+	}
+	
+	static int idEd = 1;
+	public static void infoEndereco(Endereço ed) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("\n-----Insira as informações do endereço :" + idEd++ + "-----\n");
+		System.out.print("Digite o logradouro: ");
+		String log = sc.nextLine();
+		ed.setLogradouro(log);
+		
+		System.out.print("Digite o numero: ");
+		int num = sc.nextInt();
+		ed.setNumero(num);
+		
+		System.out.print("Digite o complemeto: ");
+		String comp = sc.nextLine();
+		ed.setComplemento(comp);
+		
+		sc.nextLine();
+		
+		System.out.print("Digite o bairro: ");
+		String bairro = sc.nextLine();
+		ed.setBairro(bairro);	
 	}
 
 	@Override

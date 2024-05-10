@@ -2,6 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Time implements Comparable<Time> {
 	private Integer id;
@@ -78,6 +79,17 @@ public class Time implements Comparable<Time> {
 	public void setSaldoGols(Integer saldoGols) {
 		gols += saldoGols;
 		this.saldoGols = gols;
+	}
+	
+	static int idTime = 1;
+	public static void InfoTime(Time t) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("\n-----Insira as informações do time :" + idTime++ + "-----\n");
+		
+		System.out.print("Digite o nome: ");
+		String nome = sc.nextLine();
+		t.setName(nome);
 	}
 	/*
 	@Override

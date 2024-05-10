@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.Scanner;
+import entities.Endereço;
+
 public class Estadio {
 
 	private Integer id;
@@ -37,6 +40,17 @@ public class Estadio {
 		this.endereco = endereco;
 	}
 
+	static int idEstadio = 1;
+	public static void InfoEstadio(Estadio e) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("\n-----Insira as informações do estadio " + idEstadio++ + "-----\n");
+		
+		System.out.print("Digite o nome do estádio: ");
+		String nome = sc.nextLine();
+		e.setName(nome);
+	}
+		
 	@Override
 	public String toString() {
 		return "Estadio [id: " + id + ", name: " + name + ", endereco: " + endereco + "]";

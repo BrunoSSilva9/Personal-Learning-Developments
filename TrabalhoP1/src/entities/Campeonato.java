@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Campeonato {
 	private Integer id;
@@ -126,7 +127,6 @@ public class Campeonato {
 			}
 		}
 		Collections.sort(times);
-		System.out.println("\n-----TABELA DA COPA DO BRASIL-----");
 		for (Time time : times) {
 			System.out.print("Time " + time.getName());
 			System.out.print(", Saldo Vitórias: " + time.getSaldoVitorias());
@@ -134,5 +134,51 @@ public class Campeonato {
 		}
 	}
 
+	public static void menuPrincipal(Campeonato c) {
+		Scanner sc = new Scanner(System.in);
+		
+		int escolha;
+		do {
+			System.out.println("\n-----Menu Principal-----");
+			System.out.println("1. Visualizar Partidas");
+            System.out.println("2. Visualizar Tabela do Campeonato");
+            System.out.println("3. Criar novo Campeonato");
+            System.out.println("4. Sair");
+            System.out.print("Escolha a opção desejada: ");
+            
+            escolha = sc.nextInt();
+            
+            switch(escolha) {
+            	case 1:
+            		c.StatusPartidas();
+            		break;
+            	case 2:
+            		c.tabelaCampeonato();
+            		break;
+            	case 3:
+            		sc.nextLine();
+            		Campeonato c2 = new Campeonato();
+            		System.out.println("Digite o ano do campeonato: ");
+            		int ano = sc.nextInt();
+            		sc.nextLine();
+            		
+            		System.out.println("Digite o nome do campeonato: ");
+            		String nome = sc.nextLine();
+            		
+            		c2.setAno(ano);
+            		c2.setName(nome);
+            		System.out.print("Novo Campeonato criado!\nNome: " + c2.getName() + "\n" + "Ano: " + c2.getAno());
+            		break;
+            		
+            	case 4:
+            		System.out.println("Encerrando Programa>>>");
+            		break;
+            	default:
+            		System.out.println("Opção Inválida, escolha uma válida!");
+            }
+		}while(escolha != 4);
+		
+		
+	}	
 
 }
